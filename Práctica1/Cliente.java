@@ -44,8 +44,15 @@ public class Cliente{
 		return precio_inmueble;
 	}
 
+	public void setPrecio_Inmueble(String precio){
+		precio_inmueble = precio;
+	}
+
 	public String getPrecio_Venta(){
 		return precio_venta;
 	}
 
+	public void setPrecio_Venta(String precio){
+		precio_venta = precio;
+	}
 }

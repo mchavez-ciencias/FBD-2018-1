@@ -2,7 +2,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import com.csvreader.CsvReader;
-import java.util.*;
 
 public class Consulta{
 

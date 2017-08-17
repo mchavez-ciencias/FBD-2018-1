@@ -173,6 +173,31 @@ public class Consulta{
 		return regresa;
 	}
 
+	public String puntoE1(String direccion){
+
+		Cliente[] clientes = leer();
+		String regresa = "";
+
+		for (int i = 0 ; i < clientes.length ; i++){
+			if (clientes[i].getDireccion().equals(direccion))
+				regresa = regresa + clientes[i].getNombre() + " , "; 
+		}
+
+		return regresa;
+
+	}
+
+	public String puntoE2(String correo , String nombre){
+		Cliente[] clientes = leer();
+
+		for (int i = 0 ; i < clientes.length ; i++){
+			if(clientes[i].getNombre().equals(nombre) && clientes[i].getCorreo().equals(correo)){
+				return "\nNombre: " + clientes[i].getNombre() + "\nTelefono: " + clientes[i].getTelefono() + "\nDireccion: " + clientes[i].getDireccion() + "\nCorreo: " + clientes[i].getCorreo() + "\nMetros: " + clientes[i].getMetros() + "\nPrecio del Inmueble: " + clientes[i].getPrecio_Inmueble() + "\nPrecio de Venta del Inmueble: " + clientes[i].getPrecio_Venta();
+			}
+		}
+		return "No se encontro informacion del cliente";
+	}
+
 
 	public static void main(String[] args) {
      	
@@ -184,6 +209,9 @@ public class Consulta{
         System.out.println("El resultado de la tercera consulta es: " + c.consulta3() + "\n");
         System.out.println("El resultado de la cuarta consulta es: " + c.consulta4() + "\n");
         System.out.println("El resultado de la quinta consulta es: " + c.consulta5() + "\n");
-        
+        System.out.println("El resultado del primer punto extra es: " + c.puntoE1("542-1125 Sagittis. C.") + "\n");
+        System.out.println("El resultado del primer punto extra es: " + c.puntoE2("eu.erat@ipsumCurabitur.edu","Kylan I. Farley") + "\n");
+
+
     }
 }

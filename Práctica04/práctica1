@@ -1,0 +1,40 @@
+CREATE SCHEMA Representantes;
+
+CREATE TABLE Representantes.estados(
+    id_estado VARCHAR(20) UNIQUE,
+    nombre VARCHAR (30),
+    PRIMARY KEY (id_estado)
+);
+
+CREATE TABLE Representantes.distritos(
+    id_distrito INTEGER UNIQUE,
+    distritos_estados_fk VARCHAR (20),
+    nombre VARCHAR(30),
+    FOREIGN KEY (distritos_estados_fk) REFERENCES Representantes.estados(id_estado),
+    PRIMARY KEY (id_distrito, distritos_estados_fk)
+);
+
+CREATE TABLE Representantes.casillas(
+    seccion INTEGER,
+    tipo_casilla VARCHAR (5),
+    aprobada INTEGER,
+    PRIMARY KEY (seccion,tipo_casilla,aprobada)   
+);
+
+CREATE TABLE Representantes.partidos(
+	id_partido VARCHAR(10),
+	siglas VARCHAR(5),
+    nombre VARCHAR (20),
+    partidos_distritos_fk INTEGER,
+    partidos_estados_fk VARCHAR (20),
+    FOREIGN KEY (partidos_distritos_fk) REFERENCES Representantes.distritos(id_distrito),
+    FOREIGN KEY (partidos_estados_fk) REFERENCES Representantes.estados(id_estado),
+    PRIMARY KEY (id_partido,partidos_distritos_fk,partidos_estados_fk)
+);
+
+CREATE TABLE Representantes.Representates_preliminares();
+CREATE TABLE Representantes.Representates_datos();
+CREATE TABLE Representantes.Asistencias();
+CREATE TABLE Representantes.Representantes_sustituciones();
+CREATE TABLE Representantes.Representantes_aprobados();
+CREATE TABLE Representantes.Log_representates_aprobados();
